@@ -7,7 +7,7 @@ const fireColorsPalette = [{"r":7,"g":7,"b":7},{"r":31,"g":7,"b":7},{"r":47,"g":
 function start(){
     createFireDataStructure();
     createFireSource();
-    setInterval(calculateFirePropagation, 10);
+    setInterval(calculateFirePropagation, 50);
 }
 
 function createFireDataStructure(){
