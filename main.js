@@ -8,7 +8,6 @@ function start(){
     createFireDataStructure();
     createFireSource();
     setInterval(calculateFirePropagation, 10);
-    console.log(firePixelsArray);
 }
 
 function createFireDataStructure(){
@@ -33,12 +32,10 @@ function updateFireIntensityPerPixel(currentPixelIndex){
     if(belowPixelIndex >= fireWidth * fireHeight) {
         return;
     }
-
     const decay = Math.floor(Math.random() * 3);
     const belowPixelFireIntensity = firePixelsArray[belowPixelIndex];
     const newFireIntensity = 
         belowPixelFireIntensity - decay >= 0 ? belowPixelFireIntensity - decay : 0;
-
     firePixelsArray[currentPixelIndex - decay] = newFireIntensity;
 }
 
@@ -61,7 +58,6 @@ function renderFire(){
                 html += `<td class="pixel" style="background-color: rgb(${colorStirng})">`;
                 html += '</td>';
             }
-            
         }
         html += '</tr>';
     }
@@ -73,8 +69,8 @@ function createFireSource(){
     for(let column = 0; column <= fireWidth; column++){
         const overflowPixelIndex = fireWidth * fireHeight;
         const pixelIndex = (overflowPixelIndex - fireWidth) + column;
-
         firePixelsArray[pixelIndex] = 36;
     }
 }
+
 start();
